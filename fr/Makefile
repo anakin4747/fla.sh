@@ -1,4 +1,6 @@
 
+all: en2fr
+
 raw_verbs:
 	pdftotext verbs_all_0.pdf $@
 
@@ -24,4 +26,4 @@ fr2en: conj_verbs_w_pronoun infinitives
 
 .PHONY: en2fr
 en2fr: fr2en
-	awk -F: '{printf "%s:%s:%s:%s", $1, $3, $2, $4}' $< > $@
+	awk -F: '{printf "%s:%s:%s:%s\n", $1, $3, $2, $4}' $< > $@
