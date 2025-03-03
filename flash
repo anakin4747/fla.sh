@@ -24,7 +24,6 @@
 #==============================================================#
 
 # USER CUSTOMIZABLE VARIABLES
-CARD_POOL_SIZE=10        ######## How large the pool size is for shuf to draw from
 SEARCH_DEPTH=999         ######### How many levels to recursively search for .csv's in .local/share/flash
 PREVIEWER='bat'          ########## What fzf previewer to use when searching through decks
 CURR_DECK_DISPLAY="file" # Options are 'file' or 'path'
@@ -259,7 +258,7 @@ add_usage_entry() {
 main() {
     IFS=$':'
     # shellcheck disable=SC2162
-    read -a q <<<"$(sort "$DECK" -n --field-separator=: --key=4 | head -n "$CARD_POOL_SIZE" | shuf -n 1)"
+    read -a q <<<"$(sort "$DECK" -n --field-separator=: --key=4 | shuf -n 1)"
     clear
     print_head
     echo -e "
