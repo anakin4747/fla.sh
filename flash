@@ -233,7 +233,6 @@ ${ORANGE}${BOLD}Cards Reviewed:${BOLD}${NC}\t$COUNTER
 \t${ORANGE}${BOLD}High Score:${BOLD}${NC}\t$(cat "$HIGH_SCORE")
 \t${ORANGE}${BOLD}Avg review:${BOLD}${NC}\t$(awk '{ sum += $7; n++ } END { if (n > 0) print sum / n; }' "$REVIEW_LOG")
 
-${LGREY}Category:${NC} ${q[0]}
 ___________________________________________________________
 
 $([ ${#QUESTION} -lt 59 ] && printf "%$(((59 - ${#QUESTION}) / 2))s")$QUESTION"
@@ -278,6 +277,8 @@ ${LGREY}──────────────── Press [Enter] to contin
     echo -e "___________________________________________________________
 
 $([ ${#ANSWER} -lt 59 ] && printf "%$(((59 - ${#ANSWER}) / 2))s")$ANSWER
+
+${LGREY}Category:${NC} ${q[0]}
 
 ${WHITEBG}${WHITE}===========================================================${NC}
 
